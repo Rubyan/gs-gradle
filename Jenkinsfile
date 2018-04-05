@@ -5,9 +5,11 @@ node {
     checkout scm
   }
   stage('test') {
+    input {
+       message "Please inspect container"
+    }
      myGradleContainer.inside("-v ${env.HOME}/.gradle:/home/gradle/.gradle") {
-       sh 'pwd'
-       sh 'ls'
+       sh 'ls -liah ${env.HOME}'
        sh 'cd complete && ./gradlew test'
      }
   }
