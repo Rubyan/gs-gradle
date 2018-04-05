@@ -8,7 +8,7 @@ node {
      //input 'Please inspect container'
     
      myGradleContainer.inside("-v ${env.HOME}/.gradle:/home/gradle/.gradle") {
-       sh "ls -liah ${env.HOME}"
+       sh "ls -liah ${env.HOME}/.gradle"
        sh 'cd complete && ./gradlew test'
      }
   }
